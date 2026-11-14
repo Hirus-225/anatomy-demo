@@ -70,15 +70,13 @@
 
     .avatar {
       flex-shrink: 0;
-      width: 44px;
-      height: 44px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: var(--accent);
-      color: #ffffff;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 1rem;
+      object-fit: cover;
+      border: 2px solid var(--card);
+      box-shadow: 0 0 0 1px var(--line);
+      background: var(--accent-soft);
     }
 
     .author-text { font-size: 0.95rem; }
@@ -223,7 +221,7 @@
       <p>Deux concepts expliqués sous forme de machines isométriques. Faites glisser les commandes, cliquez sur les pièces et observez les chiffres changer en direct.</p>
 
       <div class="author">
-        <div class="avatar" aria-hidden="true">NZ</div>
+        <img class="avatar" src="photo.jpg" alt="Portrait de Nathan Zogoue" width="56" height="56">
         <div class="author-text">
           <strong>Conçu par Nathan Zogoue</strong>
           <span>Responsable RH &amp; SIRH, passionné d'automatisation · </span>
