@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anatomy Demo</title>
   <meta name="description" content="Figures interactives.">
+  <meta name="author" content="Nathan Zogoue">
   <style>
     :root {
       --bg: #f6f4ef;
@@ -52,10 +53,52 @@
       margin: 16px 0 12px;
     }
 
-    header p {
+    header > p {
       color: var(--muted);
       max-width: 60ch;
       margin: 0;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .author-text { font-size: 0.95rem; }
+
+    .author-text strong { display: block; }
+
+    .author-text span { color: var(--muted); }
+
+    .author-text a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .author-text a:hover,
+    .author-text a:focus-visible { text-decoration: underline; }
+
+    .section-title {
+      font-size: 1.05rem;
+      margin: 0 0 16px;
     }
 
     .grid {
@@ -92,20 +135,68 @@
       letter-spacing: 0.04em;
     }
 
-    .card h2 {
+    .card h3 {
       font-size: 1.3rem;
       margin: 8px 0 10px;
     }
 
     .card p {
       color: var(--muted);
-      margin: 0 0 20px;
+      margin: 0 0 16px;
       flex-grow: 1;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 16px;
     }
 
     .cta {
       font-weight: 600;
       color: var(--accent);
+    }
+
+    .method { margin-top: 48px; }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .steps strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
     }
 
     footer {
@@ -130,22 +221,45 @@
       <span class="tag">Figures interactives</span>
       <h1>Comprendre en manipulant</h1>
       <p>Deux concepts expliqués sous forme de machines isométriques. Faites glisser les commandes, cliquez sur les pièces et observez les chiffres changer en direct.</p>
+
+      <div class="author">
+        <div class="avatar" aria-hidden="true">NZ</div>
+        <div class="author-text">
+          <strong>Conçu par Nathan Zogoue</strong>
+          <span>Responsable RH &amp; SIRH, passionné d'automatisation · </span>
+          <a href="https://www.linkedin.com/in/lebry-charles-aim%C3%A9-nathana%C3%ABl-zogoue-a946b6255/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
     </header>
 
-    <section class="grid">
-      <a class="card" href="stopLoss_suiveur.html">
-        <span class="domain">Trading</span>
-        <h2>Le stop-loss suiveur</h2>
-        <p>Comment un stop-loss de 5 % suit le prix à la hausse pour protéger les gains, sans jamais redescendre.</p>
-        <span class="cta">Ouvrir la figure →</span>
-      </a>
+    <section>
+      <h2 class="section-title">Les figures</h2>
+      <div class="grid">
+        <a class="card" href="stopLoss_suiveur.html">
+          <span class="domain">Trading</span>
+          <h3>Le stop-loss suiveur</h3>
+          <p>Comment un stop-loss de 5 % suit le prix à la hausse pour protéger les gains, sans jamais redescendre.</p>
+          <span class="meta">3D interactive · Novembre 2026</span>
+          <span class="cta">Ouvrir la figure →</span>
+        </a>
 
-      <a class="card" href="paie.html">
-        <span class="domain">Ressources humaines</span>
-        <h2>Le bulletin de paie</h2>
-        <p>Du salaire brut au net à payer en Côte d'Ivoire : CNPS, ITS, réduction pour charges de famille et CMU.</p>
-        <span class="cta">Ouvrir la figure →</span>
-      </a>
+        <a class="card" href="paie.html">
+          <span class="domain">Ressources humaines</span>
+          <h3>Le bulletin de paie</h3>
+          <p>Du salaire brut au net à payer en Côte d'Ivoire : CNPS, ITS, réduction pour charges de famille et CMU.</p>
+          <span class="meta">SVG interactif · Novembre 2026</span>
+          <span class="cta">Ouvrir la figure →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="method">
+      <h2 class="section-title">Comment c'est fait</h2>
+      <ol class="steps">
+        <li><strong>Des données réelles</strong>Chaque figure part de vrais chiffres : taux, seuils, barèmes.</li>
+        <li><strong>Une machine qui calcule</strong>Les pièces qui bougent et les montants affichés viennent du même modèle de calcul.</li>
+        <li><strong>Une vérification</strong>Les résultats sont contrôlés sur des cas concrets avant publication.</li>
+      </ol>
     </section>
 
     <footer>
